@@ -2,6 +2,8 @@
   const props = defineProps({
     car:Object
   })
+
+  const config = useRuntimeConfig()
 </script>
 <template>
 
@@ -10,7 +12,7 @@
     <!-- CAR HERO -->
     <div class="mt-10">
       <NuxtImg
-        :src="car.url"
+        :src="`${config.public.supabase.url}/storage/v1/object/public/images/${car.image}`"
         class="w-full"
         alt=""
       />
@@ -19,9 +21,9 @@
         class="text-slate-500 flex text-lg mt-3 border-b pb-5 justify-between"
       >
         <div class="flex">
-          <p class="mr-2">{{ car.seats }} seats</p>
+          <p class="mr-2">{{ car.numberOfSeat }} seats</p>
           <p class="mr-2">|</p>
-          <p class="mr-2">{{ car.miles }} miles</p>
+          <p class="mr-2">{{ car.mile }} miles</p>
         </div>
         <div>
           <p class="font-bold text-2xl">${{car.price}}</p>

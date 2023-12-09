@@ -48,7 +48,9 @@ const city = ref("")
         maxPrice : priceRange.value.max
       }
     })
+    
   }
+
 </script>
 <template>
          <!-- CAR SIDE BAR -->

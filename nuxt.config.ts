@@ -4,5 +4,9 @@ export default defineNuxtConfig({
     '@nuxtjs/tailwindcss',
     '@nuxt/image',
     '@vueuse/nuxt',
+    '@nuxtjs/supabase'
   ],
+  supabase : {
+    redirect : false
+  },
 })

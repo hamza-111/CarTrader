@@ -19,6 +19,23 @@
         uppercase
         font-bold
         " href="/">cartrader</NuxtLink>
+        <div v-if="user" class="flex">
+          <NuxtLink to="/profile/listings" class="mr-5">Profile</NuxtLink>
+          <p class="cursor-pointer" @click="logout">Logout</p>
+        </div>
+        <NuxtLink v-else to="/login">Login</NuxtLink>
   </header>
   <!-- navBar -->
 </template>
+<script setup>
+const supabase = useSupabaseClient()
+  const user = useSupabaseUser()
+  const logout = async () => {
+    const {error} = await supabase.auth.signOut()
+    if (error) {
+      console.error(error);
+    } else {
+      navigateTo('/');
+    }
+  }
+</script>
